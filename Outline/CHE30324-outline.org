@@ -3887,10 +3887,10 @@ plt.savefig('./Images/dehydroG.png')
 Kp = np.exp(-deltaG/(k*T))
 
 def equil1(y):      # 1 bar
-    return y * y - K*(1-y)
+    return y * y - K*(1-y)*(1-y)
 
 def equil100(y):    # 100 bar
-    return 100*y * 100*y - K*100*(1-y)
+    return 100*y * 100*y - K*100*(1-y)*(1-y)
 
 old1 = 0.5
 old100 = 0.5
@@ -3952,7 +3952,7 @@ plt.savefig('./Images/equilibrium.png')
 *** Le'Chatlier's principle
 1. Example: ethane dehydrogenation, \ce{C2H6 -> C2H4 + H2}, endothermic, positive entropy
 2. Equilibrium composition starting from \ce{C2H6}, at constant pressure
-    \[ K_p(T) = \frac{q_{\ce{C2H4}}^\circ(T) q_{\ce{H2}}^\circ(T)}{q_{\ce{C2H6}}^\circ(T)} e^{-\Delta E(0)/k_BT} =  \frac{P_{\ce{C2H4}}P_{\ce{H2}}}{P_{\ce{C2H6}}}\frac{1}{P^\circ} = \frac{P}{P^\circ}\frac{x^2}{(1-x)} \]
+    \[ K_p(T) = \frac{q_{\ce{C2H4}}^\circ(T) q_{\ce{H2}}^\circ(T)}{q_{\ce{C2H6}}^\circ(T)} e^{-\Delta E(0)/k_BT} =  \frac{P_{\ce{C2H4}}P_{\ce{H2}}}{P_{\ce{C2H6}}}\frac{1}{P^\circ} = \frac{P}{P^\circ}\frac{x^2}{(1-x)(1+x)} \]
 3. Response to temperature: Boltzmann distribution favors higher energy things as $T$ increases
 4. Response to pressure change: translational DOFs increasingly favor side with more molecules as volume increases/pressure decreases
 ** Lecture 21: Chemical kinetics
