@@ -3932,6 +3932,27 @@ plt.savefig('./Images/equilibrium.png')
 \end{table}
 #+END_EXPORT
 
+#+BEGIN_SRC python :exports results
+# snippet to solve VA to AC equilibrium
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+def equil1(y):      # 1 bar
+    return y - K*(1-y)
+
+K = 120
+y0 = 0.99999
+
+xeq = fsolve(equil1,y0)
+
+print(xeq)
+#+END_SRC
+
+#+RESULTS:
+: [0.98360656]
+
 *** Chemical equilibrium
 1. At chemical equilbrium, total free energy minimized with respect to reaction advancement \(\xi\)
     \[G(T,\xi) = \xi  (\Delta G^\circ + k T \sum_i \nu_i \ln P_i/P^\circ) \]
