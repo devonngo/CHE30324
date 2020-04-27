@@ -4206,9 +4206,12 @@ deltaSd = S(deltaAd,deltaUd,T)
 \end{table}
 #+END_EXPORT
 
+*** Application: gas-phase reactions
+1. Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
 *** Heterogeneous reactions and catalysis
 1. molecule-surface collisions
 2. surface reactions
+3. Ammonia oxidation, \ce{NH3 + O2 -> NO, N2}, [[http://pubs.acs.org/doi/10.1021/acscatal.8b04251][doi:10.1021/acscatal.8b04251]] 
 
 #+BEGIN_EXPORT latex
 \begin{table}
