@@ -3684,6 +3684,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fsolve
 
+#
+# In this code, qtrans is reported in mol/volume so that standard state is also in per mole.  Might be clearer to
+# report qtrans as a number/volume to be consistent with homework.
+#
+
+
 k = 8.61733e-5      # eV /K
 h = 4.13566766e-15  # eV s
 eVtokJ = 96.485332
@@ -3947,11 +3953,10 @@ y0 = 0.99999
 
 xeq = fsolve(equil1,y0)
 
-print(xeq)
+# print(xeq)
 #+END_SRC
 
 #+RESULTS:
-: [0.98360656]
 
 *** Chemical equilibrium
 1. At chemical equilbrium, total free energy minimized with respect to reaction advancement \(\xi\)
@@ -4025,6 +4030,8 @@ print(xeq)
 4. application to two molecules - vinyl alcohol to acetaldehyde
 5. microscopic reversibility
 6. equilibrium requirement \(K_{eq}(T) = k_f(T)/k_r(T)\)
+
+#+ATTR_ORG: :width 600
 #+ATTR_LATEX: :width 0.6\textwidth
 [[./Images/PES.png]]
 *** Locating transition states computationally
@@ -4130,7 +4137,7 @@ stdconc = (1e5/(R0*T)) # (1 bar/ R T) = mol/m3
 
 Ea0 = (TS.energy-VA.energy)*autoeV + (TS.ZPE() - VA.ZPE())
 
-# print(Ea0*eVtokJ)
+print('Vinyl alcohol to TS {:4.0f} kJ/mol'.format(Ea0*eVtokJ))
 
 kTh = (kB/h) * T 
 qratio = (TS.qtot(T)/VA.qtot(T))
@@ -4185,6 +4192,9 @@ deltaSd = S(deltaAd,deltaUd,T)
 
 #+END_SRC
 
+#+RESULTS:
+: Vinyl alcohol to TS  216 kJ/mol
+
 #+BEGIN_EXPORT latex
 \begin{table}
    \caption{Vinyl alcohol to acetaldehyde}
@@ -4196,9 +4206,12 @@ deltaSd = S(deltaAd,deltaUd,T)
 \end{table}
 #+END_EXPORT
 
+*** Application: gas-phase reactions
+1. Ethane pyrolysis, \ce{C2H6 -> C2H4 + H2}, [[https://pubs.acs.org/doi/10.1021/jp206503d][doi:10.1021/jp206503d]]
 *** Heterogeneous reactions and catalysis
 1. molecule-surface collisions
 2. surface reactions
+3. Ammonia oxidation, \ce{NH3 + O2 -> NO, N2}, [[http://pubs.acs.org/doi/10.1021/acscatal.8b04251][doi:10.1021/acscatal.8b04251]] 
 
 #+BEGIN_EXPORT latex
 \begin{table}
